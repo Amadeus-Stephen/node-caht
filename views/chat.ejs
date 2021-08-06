@@ -120,12 +120,12 @@ const room = "<%= chatroom._id %>"
 const socket = io();
 socket.emit('joinRoom', { name, room });
 socket.on('chatdata', ({  chatdata,users }) => {
-  outputUsers(users);
-  chatdata.map(message => {
-    outputMessage(message)
-  })
+  for ( i= 0 ; i < chatdata.length; i ++) {
+     outputMessage(chatdata[i]);
+  }
 });
 socket.on('message', message => {
+  console.log(message)
   outputMessage(message);
   chatMessages.scrollTop = chatMessages.scrollHeight;
 });

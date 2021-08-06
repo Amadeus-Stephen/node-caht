@@ -10,6 +10,7 @@ const bodyParser = require('body-parser')
 const jsonParser = bodyParser.json();
 const app = express();
 app.use(jsonParser)
+app.use(express.static(__dirname + "/public"))
 require('./config/passport')(passport);
 const server = http.createServer(app);
 const io = socketio(server);
