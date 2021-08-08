@@ -1,12 +1,18 @@
 <% include ./partials/navbar %>
+
+
+<header>
+    <div class="banner">
 <% if(chatroom) { %>
 <form action="/chat/room" method="POST">
 <ul class="list-group">
 <% chatroom.forEach((entry, i, entries) => { %>
-    <li class="list-group-item d-flex justify-content-between align-items-center">
-        <input id="<%= entry.name %>"  type="submit" name="roomid" value="<%= entry._id %>">
-            <h3><%= entry.name %> By || <%= entry.owner.name %></h3>
-        </input>
+    <li class="row">
+        <label>
+            <%= entry.name %> By <%= entry.owner.username %>
+        </label>
+        <input id="<%= entry.name %>"  type="submit" name="roomid" value="<%= entry._id %>"/>
+            
     </li>
 <% }) %>
 </ul>
@@ -14,3 +20,8 @@
 <% } else{ %>  
    <h1>No Search Results Found</h1>
 <% } %>
+
+
+    </div>
+
+</header>

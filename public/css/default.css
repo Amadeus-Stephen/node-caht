@@ -88,7 +88,7 @@ pre {
    word-wrap: break-word;
 }
 
-blockquote, q { quotes: &#8220 &#8220; }
+/* blockquote, q { quotes: &#8220 &#8220; } */
 
 blockquote:before, blockquote:after,
 q:before, q:after {
@@ -531,6 +531,7 @@ form { margin-bottom: 24px; }
 fieldset { margin-bottom: 24px; }
 
 input[type="text"],
+input[type="name"],
 input[type="password"],
 input[type="email"],
 textarea,
@@ -543,7 +544,7 @@ select {
    vertical-align: middle;
    /* min-width: 225px;
 	max-width: 100%; */
-   width: 90%;
+   width: 80%;
    font-size: 15px;
    line-height: 24px;
 	color: #647373;
@@ -594,10 +595,15 @@ input[type="checkbox"] { display: inline; }
 
 /* default
 --------------------------------------------------------------- */
+.form-group {
+   width: 100%;
+}
 .row {
-   width: 96%;
+   width: 100%;
    max-width: 1020px;
    margin: 0 auto;
+   display: flex;
+   justify-content: center;
 }
 /* fixed width for IE8 */
 .ie .row { width: 1000px ; }

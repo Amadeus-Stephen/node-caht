@@ -1,7 +1,14 @@
-<div class="row m">
+
+<header>
+  <div class="banner">
+
       <h1 class="text-center "><i class="fas fa-sign-in-alt"></i>  Login</h1>
       <% include ./partials/messages %>
       <form action="/users/login" method="POST">
+        <div class="row">
+
+        <div class="form-group">
+
           <label for="email">Email</label>
           <input
             type="email"
@@ -9,6 +16,9 @@
             name="email"
             class="form-control"
           />
+        </div>
+        <div class="form-group">
+
           <label for="password">Password</label>
           <input
             type="password"
@@ -16,9 +26,13 @@
             name="password"
             class="form-control"
           />
+        </div>
+        </div>
         <button type="submit" >Login</button>
       </form>
+</div>
       <p >
         No Account? <a href="/users/register">Register</a>
       </p>
-</div>
+  </div>
+</header>
