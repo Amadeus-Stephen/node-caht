@@ -14,12 +14,19 @@ body {
 	font-size: 16px;
 	background: var(--light-color);
 	margin: 20px;
+  display: flex;
+justify-content: center;
 }
 ul {
 	list-style: none;
 }
 a {
 	text-decoration: none;
+}
+header {
+  display: flex !important;
+  flex-direction: column;
+  width: 80% !important;
 }
 .chat-container {
 	max-width: 1100px;
@@ -44,6 +51,7 @@ a {
 	color: #fff;
 	padding: 20px 20px 60px;
 	overflow-y: scroll;
+  background-color: #353b43 !important;
 }
 .chat-sidebar h2 {
 	font-size: 20px;
@@ -57,11 +65,17 @@ a {
 .chat-sidebar ul li {
 	padding: 10px 0;
 }
+.chat-messages {
+  background-color: #353b43 !important;
+}
 .chat-messages .message {
 	padding: 10px;
 	margin-bottom: 15px;
 	border-radius: 5px;
 	overflow-wrap: break-word;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
 }
 .chat-form-container form {
 	display: flex;
@@ -81,14 +95,14 @@ a {
 	}
 }
 </style>
-<div class="chat-container">
-      <header class="card-header">
+      <!-- <header class="card-header">
           <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
                  <h1><i class="fas fa-bolt"></i></h1>
             </li>
         </ul>
-      </header>
+      </header> -->
+      <header>
       <main class="chat-main">
         <div class="chat-sidebar bg-primary">
           <h3><i class="fas fa-comments"></i> Room <%= chatroom.name %></h3>
@@ -110,7 +124,7 @@ a {
           <button class="btn btn-success"><i class="fas fa-paper-plane"></i> Send</button>
         </form>
       </div>
-    </div>
+      </header> 
 <script src="/socket.io/socket.io.js"></script>
 <script>
 const chatForm = document.getElementById('chat-form');
@@ -146,7 +160,7 @@ function outputMessage(message) {
   const p = document.createElement('p');
   p.classList.add('meta');
   p.innerText = message.name;
-  p.innerHTML += `<span>${message.time}</span>`;
+  p.innerHTML += `<span> ${message.time}</span>`;
   div.appendChild(p);
   const para = document.createElement('p');
   para.classList.add('text');
