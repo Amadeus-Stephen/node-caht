@@ -1,4 +1,3 @@
-<% include ./partials/navbar %>
 <style>
 :root {
 	--dark-color-a: #667aff;
@@ -75,7 +74,7 @@ header {
 	overflow-wrap: break-word;
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  margin-left: 2rem;
 }
 .chat-form-container form {
 	display: flex;
@@ -105,7 +104,7 @@ header {
       <header>
       <main class="chat-main">
         <div class="chat-sidebar bg-primary">
-          <h3><i class="fas fa-comments"></i> Room <%= chatroom.name %></h3>
+          <h3><i class="fas fa-comments"></i> Room </h3>
           <h3><i class="fas fa-users"></i> Users</h3>
           <ul id="users"></ul>
         </div>
@@ -129,10 +128,8 @@ header {
 <script>
 const chatForm = document.getElementById('chat-form');
 const chatMessages = document.querySelector('.chat-messages');
-const name = "<%= user.name %>"
-const room = "<%= chatroom._id %>"
 const socket = io();
-socket.emit('joinRoom', { name, room });
+// socket.emit('joinRoom', { name, room });
 socket.on('chatdata', ({  chatdata,users }) => {
   for ( i= 0 ; i < chatdata.length; i ++) {
      outputMessage(chatdata[i]);
@@ -157,11 +154,11 @@ chatForm.addEventListener('submit', e => {
 function outputMessage(message) {
   const div = document.createElement('div');
   div.classList.add('message');
-  const p = document.createElement('p');
-  p.classList.add('meta');
-  p.innerText = message.name;
-  p.innerHTML += `<span> ${message.time}</span>`;
-  div.appendChild(p);
+  // const p = document.createElement('p');
+  // p.classList.add('meta');
+  // p.innerText = message.name;
+  // p.innerHTML += `<span> ${message.time}</span>`;
+  // div.appendChild(p);
   const para = document.createElement('p');
   para.classList.add('text');
   para.innerText = message.text;
