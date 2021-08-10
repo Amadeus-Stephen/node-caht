@@ -9,4 +9,12 @@ RUN npm install
 COPY . /app
 EXPOSE 5000
 
-CMD ["npm" , "start"]
+
+# ADD https://github.com/ufoscout/docker-compose-wait/releases/download/2.9.0/wait /wait
+# RUN chmod +x /wait
+
+
+
+# RUN ["npm", "start"]
+
+CMD ["npm", "start"]

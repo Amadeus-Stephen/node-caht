@@ -1,0 +1,21 @@
+version: "3"
+
+
+services:
+  db:
+    image: mongo
+    ports:
+      - '27017:27017'
+  server:
+    container_name: node-chat
+    image: node-chat
+    restart: always
+    build: .
+    ports:
+      - "3000:5000"
+    links:
+      - db
+    depends_on: 
+      - db
+    environment: 
+      PORT : 5000

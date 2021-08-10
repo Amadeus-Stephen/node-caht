@@ -13,7 +13,7 @@ const io = socketio(server);
 
 mongoose.Promise = global.Promise;
 
-const uri = "mongodb://localhost:27017/testData";
+const uri = "mongodb://db:27017/testData";
 mongoose
     .connect(uri, {
       useCreateIndex: true,
